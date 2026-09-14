@@ -115,10 +115,9 @@ CREATE TABLE historial_precios (
     CONSTRAINT fk_historial_pizza
         FOREIGN KEY (id_pizza) REFERENCES pizzas(id_pizza)
 	);
-
-
+    
+    
 /* Inserción de  datos */
-
 
 INSERT INTO clientes
 (nombre, telefono, direccion, correo, tipo_documento, documento)
@@ -131,7 +130,6 @@ VALUES
 ('Andres Torres', '3056789012', 'Calle 10 # 8-25, Centro', 'andres.torres@gmail.com', 'C.C.', '1067890123'),
 ('Valentina Castro', '3067890123', 'Carrera 25 # 45-10, Oriente', 'valentina.castro@gmail.com', 'C.C.', '1078901234'),
 ('Mateo Herrera', '3078901234', 'Calle 65 # 20-35, Norte', 'mateo.herrera@gmail.com', 'PASAPORTE', 'PA1234567');
-
 
 
 INSERT INTO ingredientes
@@ -157,64 +155,83 @@ VALUES
 ('Oregano', 'gramos', 1000, 200, 20, TRUE);
 
 
-
 INSERT INTO pizza_ingredientes
-(nombre, tamano, precio_base, tipo, disponible)
+(id_pizza, id_ingrediente, cantidad_requerida)
 VALUES
--- Margarita
-('Margarita', 'personal', 18000, 'clasica', TRUE),
-('Margarita', 'mediana', 28000, 'clasica', TRUE),
-('Margarita', 'familiar', 38000, 'clasica', TRUE),
-('Margarita', 'gigante', 48000, 'clasica', TRUE),
+-- 1 a 4. Margarita
+(1, 1, 200), (1, 2, 60),  (1, 3, 100), (1, 18, 2),
+(2, 1, 350), (2, 2, 100), (2, 3, 160), (2, 18, 3),
+(3, 1, 600), (3, 2, 150), (3, 3, 250), (3, 18, 4),
+(4, 1, 850), (4, 2, 210), (4, 3, 350), (4, 18, 6),
 
--- Hawaiana
-('Hawaiana', 'personal', 20000, 'clasica', TRUE),
-('Hawaiana', 'mediana', 30000, 'clasica', TRUE),
-('Hawaiana', 'familiar', 38000, 'clasica', TRUE),
-('Hawaiana', 'gigante', 50000, 'clasica', TRUE),
+-- 5 a 8. Hawaiana
+(5, 1, 200), (5, 2, 60),  (5, 3, 100), (5, 4, 40),  (5, 5, 40),  (5, 18, 2),
+(6, 1, 350), (6, 2, 100), (6, 3, 160), (6, 4, 70),  (6, 5, 70),  (6, 18, 3),
+(7, 1, 600), (7, 2, 150), (7, 3, 250), (7, 4, 100), (7, 5, 100), (7, 18, 4),
+(8, 1, 850), (8, 2, 210), (8, 3, 350), (8, 4, 150), (8, 5, 150), (8, 18, 6),
 
--- Pepperoni
-('Pepperoni', 'personal', 22000, 'especial', TRUE),
-('Pepperoni', 'mediana', 32000, 'especial', TRUE),
-('Pepperoni', 'familiar', 42000, 'especial', TRUE),
-('Pepperoni', 'gigante', 55000, 'especial', TRUE),
+-- 9 a 12. Pepperoni
+(9, 1, 200),  (9, 2, 60),  (9, 3, 100),  (9, 6, 50),  (9, 18, 2),
+(10, 1, 350), (10, 2, 100), (10, 3, 160), (10, 6, 90),  (10, 18, 3),
+(11, 1, 600), (11, 2, 150), (11, 3, 250), (11, 6, 140), (11, 18, 4),
+(12, 1, 850), (12, 2, 210), (12, 3, 350), (12, 6, 200), (12, 18, 6),
 
--- Don Piccolo Especial
-('Don Piccolo Especial', 'personal', 25000, 'especial', TRUE),
-('Don Piccolo Especial', 'mediana', 35000, 'especial', TRUE),
-('Don Piccolo Especial', 'familiar', 45000, 'especial', TRUE),
-('Don Piccolo Especial', 'gigante', 60000, 'especial', TRUE),
+-- 13 a 16. Don Piccolo Especial
+(13, 1, 200), (13, 2, 60),  (13, 3, 100), (13, 4, 40),  (13, 6, 40),
+(13, 7, 40),  (13, 8, 30),  (13, 9, 25),  (13, 10, 20), (13, 15, 30), (13, 18, 2),
 
--- Pollo con Champinones
-('Pollo con Champinones', 'personal', 23000, 'especial', TRUE),
-('Pollo con Champinones', 'mediana', 35000, 'especial', TRUE),
-('Pollo con Champinones', 'familiar', 45000, 'especial', TRUE),
-('Pollo con Champinones', 'gigante', 60000, 'especial', TRUE),
+(14, 1, 350), (14, 2, 100), (14, 3, 160), (14, 4, 70),  (14, 6, 70),
+(14, 7, 70),  (14, 8, 55),  (14, 9, 45),  (14, 10, 35), (14, 15, 50), (14, 18, 3),
 
--- Vegetariana
-('Vegetariana', 'personal', 19000, 'vegetariana', TRUE),
-('Vegetariana', 'mediana', 28000, 'vegetariana', TRUE),
-('Vegetariana', 'familiar', 36000, 'vegetariana', TRUE),
-('Vegetariana', 'gigante', 50000, 'vegetariana', TRUE),
+(15, 1, 600), (15, 2, 150), (15, 3, 250), (15, 4, 100), (15, 6, 100),
+(15, 7, 100), (15, 8, 80),  (15, 9, 60),  (15, 10, 50), (15, 15, 80), (15, 18, 4),
 
--- Cuatro Quesos
-('Cuatro Quesos', 'personal', 22000, 'especial', TRUE),
-('Cuatro Quesos', 'mediana', 34000, 'especial', TRUE),
-('Cuatro Quesos', 'familiar', 44000, 'especial', TRUE),
-('Cuatro Quesos', 'gigante', 58000, 'especial', TRUE),
+(16, 1, 850), (16, 2, 210), (16, 3, 350), (16, 4, 150), (16, 6, 150),
+(16, 7, 150), (16, 8, 120), (16, 9, 90),  (16, 10, 75), (16, 15, 110), (16, 18, 6),
 
--- Mexicana
-('Mexicana', 'personal', 24000, 'especial', TRUE),
-('Mexicana', 'mediana', 32000, 'especial', TRUE),
-('Mexicana', 'familiar', 42000, 'especial', TRUE),
-('Mexicana', 'gigante', 55000, 'especial', TRUE),
+-- 17 a 20. Pollo con Champinones
+(17, 1, 200), (17, 2, 60),  (17, 3, 100), (17, 7, 60),  (17, 8, 45),  (17, 18, 2),
+(18, 1, 350), (18, 2, 100), (18, 3, 160), (18, 7, 100), (18, 8, 80),  (18, 18, 3),
+(19, 1, 600), (19, 2, 150), (19, 3, 250), (19, 7, 150), (19, 8, 120), (19, 18, 4),
+(20, 1, 850), (20, 2, 210), (20, 3, 350), (20, 7, 210), (20, 8, 170), (20, 18, 6),
 
--- Napolitana
-('Napolitana', 'personal', 18000, 'vegetariana', TRUE),
-('Napolitana', 'mediana', 30000, 'vegetariana', TRUE),
-('Napolitana', 'familiar', 40000, 'vegetariana', TRUE),
-('Napolitana', 'gigante', 48000, 'vegetariana', FALSE);
+-- 21 a 24. Vegetariana
+(21, 1, 200), (21, 2, 60),  (21, 3, 100), (21, 8, 40),  (21, 9, 30),
+(21, 10, 30), (21, 11, 40), (21, 12, 20), (21, 18, 2),
 
+(22, 1, 350), (22, 2, 100), (22, 3, 160), (22, 8, 70),  (22, 9, 50),
+(22, 10, 50), (22, 11, 70), (22, 12, 35), (22, 18, 3),
+
+(23, 1, 600), (23, 2, 150), (23, 3, 250), (23, 8, 100), (23, 9, 80),
+(23, 10, 80), (23, 11, 100), (23, 12, 60), (23, 18, 4),
+
+(24, 1, 850), (24, 2, 210), (24, 3, 350), (24, 8, 150), (24, 9, 110),
+(24, 10, 110), (24, 11, 150), (24, 12, 85), (24, 18, 6),
+
+-- 25 a 28. Cuatro Quesos
+(25, 1, 200), (25, 2, 50),  (25, 3, 70),  (25, 13, 30), (25, 14, 25), (25, 18, 2),
+(26, 1, 350), (26, 2, 80),  (26, 3, 100), (26, 13, 50), (26, 14, 40), (26, 18, 3),
+(27, 1, 600), (27, 2, 120), (27, 3, 160), (27, 13, 75), (27, 14, 60), (27, 18, 4),
+(28, 1, 850), (28, 2, 170), (28, 3, 220), (28, 13, 105), (28, 14, 80), (28, 18, 6),
+
+-- 29 a 32. Mexicana
+(29, 1, 200), (29, 2, 60),  (29, 3, 100), (29, 16, 80),  (29, 10, 30),
+(29, 9, 40),  (29, 17, 20), (29, 18, 2),
+
+(30, 1, 350), (30, 2, 100), (30, 3, 160), (30, 16, 110), (30, 10, 45),
+(30, 9, 60),  (30, 17, 30), (30, 18, 3),
+
+(31, 1, 600), (31, 2, 150), (31, 3, 250), (31, 16, 150), (31, 10, 60),
+(31, 9, 80),  (31, 17, 40), (31, 18, 4),
+
+(32, 1, 850), (32, 2, 210), (32, 3, 350), (32, 16, 220), (32, 10, 90),
+(32, 9, 120), (32, 17, 60), (32, 18, 6),
+
+-- 33 a 36. Napolitana
+(33, 1, 200), (33, 2, 60),  (33, 3, 100), (33, 11, 50),  (33, 12, 25),  (33, 18, 2),
+(34, 1, 350), (34, 2, 100), (34, 3, 160), (34, 11, 80),  (34, 12, 40),  (34, 18, 3),
+(35, 1, 600), (35, 2, 150), (35, 3, 250), (35, 11, 120), (35, 12, 60),  (35, 18, 4),
+(36, 1, 850), (36, 2, 210), (36, 3, 350), (36, 11, 170), (36, 12, 85),  (36, 18, 6);
 
 
 INSERT INTO repartidores
@@ -345,50 +362,8 @@ VALUES
 -- Pedido pendiente
 (12, 3, 'Calle 10 # 8-25, Centro', 'Sur',
  NULL, NULL, 5.50, 7000);
-
-
-
- INSERT INTO domicilios
-(id_pedido, id_repartidor, direccion_entrega, zona,
- hora_salida, hora_entrega, distancia_km, costo_envio)
-VALUES
--- Pedidos entregados
-(1, 1, 'Carrera 10 # 25-30, Centro', 'Centro',
- '2026-09-01 12:50:00', '2026-09-01 13:15:00', 3.20, 5000),
-
-(2, 2, 'Calle 45 # 12-18, Norte', 'Norte',
- '2026-09-03 19:40:00', '2026-09-03 20:10:00', 4.50, 6000),
-
-(3, 1, 'Carrera 10 # 25-30, Centro', 'Centro',
- '2026-09-05 13:30:00', '2026-09-05 13:55:00', 3.00, 5000),
-
-(4, 3, 'Carrera 10 # 25-30, Centro', 'Sur',
- '2026-09-08 20:25:00', '2026-09-08 21:05:00', 6.80, 8000),
-
-(6, 5, 'Carrera 10 # 25-30, Centro', 'Oriente',
- '2026-09-12 21:25:00', '2026-09-12 22:15:00', 9.50, 10000),
-
-(7, 2, 'Calle 45 # 12-18, Norte', 'Norte',
- '2026-09-02 19:10:00', '2026-09-02 19:40:00', 4.20, 6000),
-
-(8, 1, 'Calle 45 # 12-18, Norte', 'Centro',
- '2026-09-06 20:50:00', '2026-09-06 21:15:00', 3.40, 5000),
-
-(9, 4, 'Carrera 8 # 30-15, Sur', 'Occidente',
- '2026-09-07 19:30:00', '2026-09-07 20:10:00', 6.00, 7500),
-
-(13, 5, 'Carrera 25 # 45-10, Oriente', 'Oriente',
- '2026-08-25 18:20:00', '2026-08-25 18:50:00', 5.00, 6500),
-
--- Pedido todavía en preparación
-(11, 5, 'Carrera 15 # 60-22, Norte', 'Oriente',
- NULL, NULL, 8.20, 9000),
-
--- Pedido pendiente
-(12, 3, 'Calle 10 # 8-25, Centro', 'Sur',
- NULL, NULL, 5.50, 7000);
-
-
+ 
+ 
  INSERT INTO pagos
 (id_pedido, fecha_pago, metodo_pago, monto, estado_pago)
 VALUES
