@@ -9,7 +9,7 @@ AFTER INSERT ON detalle_pedidos
 FOR EACH ROW
 BEGIN
     UPDATE ingredientes i
-    INNER JOIN pizza_ingredientes pi
+    JOIN pizza_ingredientes pi
         ON i.id_ingrediente = pi.id_ingrediente
     SET i.stock_actual = i.stock_actual -
         (pi.cantidad_requerida * NEW.cantidad)
@@ -64,7 +64,7 @@ SELECT h.id_historial,
        h.precio_nuevo,
        h.fecha_cambio
 FROM historial_precios h
-INNER JOIN pizzas p ON h.id_pizza = p.id_pizza;
+JOIN pizzas p ON h.id_pizza = p.id_pizza;
 
 /* 3 - Trigger para marcar repartidor como “disponible” nuevamente cuando termina un domicilio.*/
 
@@ -102,7 +102,7 @@ SELECT r.id_repartidor,
        p.id_pedido,
        p.estado AS estado_pedido
 FROM repartidores r
-INNER JOIN domicilios d ON r.id_repartidor = d.id_repartidor
-INNER JOIN pedidos p ON d.id_pedido = p.id_pedido
+JOIN domicilios d ON r.id_repartidor = d.id_repartidor
+JOIN pedidos p ON d.id_pedido = p.id_pedido
 WHERE d.id_domicilio = 11;
 
