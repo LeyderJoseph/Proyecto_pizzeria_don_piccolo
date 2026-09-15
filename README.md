@@ -19,7 +19,7 @@ El sistema reemplaza el registro manual de pedidos por una estructura que permit
 
 El modelo contiene diez tablas relacionadas. Las claves foráneas aseguran que cada pedido pertenezca a un cliente, cada detalle corresponda a una pizza válida y cada domicilio tenga un repartidor asignado.
 
-![Diagrama entidad-relación de Pizzería Don Piccolo](Diagrama_pizzeria.png)
+![Diagrama entidad-relación de Pizzería Don Piccolo](imagenes/Diagrama_pizzeria.png)
 
 > El archivo `Diagrama_pizzeria.png` debe permanecer en la misma carpeta que este README para que GitHub o Visual Studio lo muestren correctamente.
 
@@ -110,69 +110,74 @@ El proyecto incluye consultas para:
 | `vista_desempeno_repartidores` | Repartidor, zona, número de entregas y tiempo promedio de entrega. |
 | `vista_stock_bajo_minimo` | Ingredientes cuyo stock actual está por debajo del mínimo permitido. |
 
-## Evidencias sugeridas
-
-Guarda las siguientes capturas en una carpeta llamada `imagenes` dentro del proyecto. Después de agregarlas, las rutas incluidas abajo mostrarán cada evidencia en este README.
-
-### Diagrama de la base de datos
-
-Ya incluido al inicio del documento: `Diagrama_pizzeria.png`.
 
 ### Función: total de pedido
-
-**Captura sugerida:** resultado de la consulta que compara `total_guardado` con `total_calculado`.
-
-Guarda la imagen como: `imagenes/01_funcion_total_pedido.png`
 
 ![Resultado de la función calcular total pedido](imagenes/01_funcion_total_pedido.png)
 
 ### Función: ganancia neta diaria
 
-**Captura sugerida:** resultado de `SELECT calcular_ganancia_neta_diaria('2026-09-01');`.
-
-Guarda la imagen como: `imagenes/02_funcion_ganancia_neta.png`
-
 ![Resultado de la función ganancia neta diaria](imagenes/02_funcion_ganancia_neta.png)
 
 ### Procedimiento: registrar entrega
-
-**Captura sugerida:** consulta que muestre el domicilio con `hora_salida`, `hora_entrega` y el pedido con estado `entregado`.
-
-Guarda la imagen como: `imagenes/03_procedimiento_registrar_entrega.png`
 
 ![Resultado del procedimiento registrar entrega](imagenes/03_procedimiento_registrar_entrega.png)
 
 ### Trigger: actualización de stock
 
-**Captura sugerida:** consulta de ingredientes antes y después de insertar una pizza en `detalle_pedidos`.
-
-Guarda la imagen como: `imagenes/04_trigger_actualizar_stock.png`
-
 ![Resultado del trigger de inventario](imagenes/04_trigger_actualizar_stock.png)
 
 ### Trigger: historial de precios
-
-**Captura sugerida:** resultado de la tabla `historial_precios` después de modificar el precio de una pizza.
-
-Guarda la imagen como: `imagenes/05_trigger_historial_precios.png`
 
 ![Resultado del trigger de historial de precios](imagenes/05_trigger_historial_precios.png)
 
 ### Trigger: repartidor disponible
 
-**Captura sugerida:** consulta donde se vea el repartidor en estado `disponible` después de registrar la entrega.
-
-Guarda la imagen como: `imagenes/06_trigger_repartidor_disponible.png`
-
 ![Resultado del trigger de repartidor disponible](imagenes/06_trigger_repartidor_disponible.png)
 
 ### Consultas y vistas
 
-**Captura sugerida:** resultados de las consultas requeridas y de las tres vistas creadas.
+Guarda una captura individual para cada consulta y vista. Esto permite demostrar claramente el resultado de cada requerimiento.
 
-Guarda la imagen como: `imagenes/07_consultas_y_vistas.png`
+#### Consulta 1: clientes con pedidos entre fechas
 
-![Resultados de consultas y vistas](imagenes/07_consultas_y_vistas.png)
+![Clientes con pedidos entre fechas](imagenes/07_consulta_clientes_entre_fechas.png)
+
+#### Consulta 2: pizzas más vendidas
+
+![Pizzas más vendidas](imagenes/08_consulta_pizzas_mas_vendidas.png)
+
+#### Consulta 3: pedidos por repartidor
+
+![Pedidos por repartidor](imagenes/09_consulta_pedidos_por_repartidor.png)
+
+#### Consulta 4: promedio de entrega por zona
+
+![Promedio de entrega por zona](imagenes/10_consulta_promedio_entrega_zona.png)
+
+#### Consulta 5: clientes con gasto superior al monto
+
+![Clientes con gasto superior al monto](imagenes/11_consulta_clientes_mayor_gasto.png)
+
+#### Consulta 6: búsqueda parcial de pizza
+
+![Búsqueda parcial de pizza](imagenes/12_consulta_busqueda_like.png)
+
+#### Consulta 7: clientes frecuentes
+
+![Clientes frecuentes](imagenes/13_consulta_clientes_frecuentes.png)
+
+#### Vista 1: resumen de pedidos por cliente
+
+![Vista resumen de pedidos por cliente](imagenes/14_vista_resumen_pedidos_cliente.png)
+
+#### Vista 2: desempeño de repartidores
+
+![Vista desempeño de repartidores](imagenes/15_vista_desempeno_repartidores.png)
+
+#### Vista 3: ingredientes bajo stock mínimo
+
+![Vista de stock bajo mínimo](imagenes/16_vista_stock_bajo_minimo.png)
 
 ## Tecnologías utilizadas
 
