@@ -184,7 +184,3 @@ Guarda una captura individual para cada consulta y vista. Esto permite demostrar
 - MySQL 8.0
 - MySQL Workbench
 - Visual Studio Code
-
----
-
-Proyecto académico de base de datos para la gestión de pedidos y domicilios de Pizzería Don Piccolo.
