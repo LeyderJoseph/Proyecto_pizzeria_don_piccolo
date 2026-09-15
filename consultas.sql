@@ -1,5 +1,5 @@
 USE  PIZZERIA_DON_PICCOLO;
-
+/*Consultas SQL */
 /* Clientes con pedidos entre dos fechas (BETWEEN) */
 SELECT c.id_cliente,
        c.nombre,

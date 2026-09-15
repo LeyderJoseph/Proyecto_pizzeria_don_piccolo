@@ -1,8 +1,6 @@
 USE  PIZZERIA_DON_PICCOLO;
-
 /*Triggers*/
 /* 1 - Trigger de actualización automática de stock de ingredientes cuando se realiza un pedido.*/
-
 DELIMITER //
 CREATE TRIGGER actualizar_stock_ingredientes
 AFTER INSERT ON detalle_pedidos
@@ -67,7 +65,6 @@ FROM historial_precios h
 JOIN pizzas p ON h.id_pizza = p.id_pizza;
 
 /* 3 - Trigger para marcar repartidor como “disponible” nuevamente cuando termina un domicilio.*/
-
 DELIMITER //
 CREATE TRIGGER liberar_repartidor
 AFTER UPDATE ON domicilios
@@ -79,21 +76,16 @@ BEGIN
         UPDATE repartidores
         SET estado = 'disponible'
         WHERE id_repartidor = NEW.id_repartidor;
-
     END IF;
 END //
 DELIMITER ;
-
 UPDATE domicilios
 SET hora_entrega = NULL
 WHERE id_domicilio = 11;
-
 UPDATE repartidores
 SET estado = 'no disponible'
 WHERE id_repartidor = 3;
-
 CALL registrar_entrega(11, '2026-09-12 20:35:00');
-
 SELECT r.id_repartidor,
        r.nombre,
        r.estado,

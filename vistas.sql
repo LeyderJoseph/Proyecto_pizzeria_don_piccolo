@@ -46,11 +46,11 @@ SELECT id_ingrediente,
 FROM ingredientes
 WHERE stock_actual < stock_minimo;
 
-SELECT * FROM vista_stock_bajo_minimo;
-
 UPDATE ingredientes
-SET stock_actual = 1500,
-    disponible = FALSE
+SET stock_actual = 3500,
+    disponible = TRUE
 WHERE id_ingrediente = 6;
+
+SELECT * FROM vista_stock_bajo_minimo;
 
 
